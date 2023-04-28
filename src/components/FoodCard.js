@@ -39,7 +39,7 @@ function FoodCard({ id, name, description, price, image, location, preparingtime
                     </Typography>
                     <br></br>
                     <Typography component="div">
-                        Price: ${price}
+                        Price: ₹{price}
                     </Typography>
                 </CardContent>
             </Card>

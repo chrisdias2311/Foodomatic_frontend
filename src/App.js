@@ -11,6 +11,7 @@ import FoodDetails from './components/FoodDetail';
 import DeliveryBoySignup from './components/DeliveryBoySignup';
 import UpdateTransaction from './components/UpdateTransaction';
 import MyOrders from './components/MyOrders';
+import DeliveryBoyLogin from './components/DeliveryBoyLogin';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/deliveryboysignup' element={<><DeliveryBoySignup /></>}></Route>
           <Route path='/updatetransaction/:id' element={<><UpdateTransaction /></>}></Route>
           <Route path='/orders' element={<><MyOrders /></>}></Route>
+          <Route path='/deliveryboylogin/:id' element={<><DeliveryBoyLogin/></>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

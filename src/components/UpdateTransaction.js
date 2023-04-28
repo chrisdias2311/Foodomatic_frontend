@@ -47,7 +47,7 @@ function UpdateTransaction() {
                     console.log("This is the error", err),
                 );
         } else {
-            navigate('/deliveryboysignup')
+            navigate('/deliveryboylogin/'+params.id)
         }
     }, [])
 

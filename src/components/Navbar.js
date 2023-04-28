@@ -105,6 +105,10 @@ function DrawerAppBar(props) {
     navigate('/deliveryboysignup')
   }
 
+  const navigateToDeliveryBoyLogin = () => {
+    navigate('/deliveryboylogin')
+  }
+
   const navigateToDashboard = () => {
     navigate('/orders')
   }
@@ -114,6 +118,9 @@ function DrawerAppBar(props) {
     dispatch(setStationery())
   }
 
+  const logout = () => {
+    localStorage.clear()
+  }
 
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -166,12 +173,12 @@ function DrawerAppBar(props) {
           >
             <img
               onClick={navigateToHome}
-              style={{height:'60px'}}
+              style={{ height: '60px' }}
               className="header_logo"
               src={Logo}
             />
           </Typography>
-          
+
           <Search sx={{ marginLeft: 5, display: 'flex' }}>
             <StyledInputBase
               placeholder="Search…"
@@ -183,18 +190,20 @@ function DrawerAppBar(props) {
 
           {
             localStorage.getItem('user') ?
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+              <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                 <Button onClick={navigateToHome} sx={{ color: '#fff' }}>Home</Button>
                 <Button onClick={navigateToDashboard} sx={{ color: '#fff' }}>My Orders</Button>
-               
-            </Box>
-            :
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+
+              </Box>
+              :
+              <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                 <Button onClick={navigateToHome} sx={{ color: '#fff' }}>Home</Button>
                 <Button onClick={navigateToUsersignup} sx={{ color: '#fff' }}>Sign up</Button>
                 <Button onClick={navigateToUserLogin} sx={{ color: '#fff' }}>Login</Button>
-                <Button onClick={navigateToDbSignup} sx={{ color: '#fff' }}>Delivery boy</Button>
-            </Box>
+                <Button onClick={logout} sx={{ ':hover': { bgcolor: 'black', color: 'white' }, bgcolor: '#155b8a', margin: '10px' }} variant="contained">Logout</Button>
+                {/* <Button onClick={navigateToDbSignup} sx={{ color: '#fff' }}>Delivery boy</Button>
+                <Button onClick={navigateToDeliveryBoyLogin} sx={{ color: '#fff' }}>Delivery boy Login</Button> */}
+              </Box>
           }
         </Toolbar>
       </AppBar>

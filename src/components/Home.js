@@ -15,7 +15,7 @@ import FoodCard from './FoodCard';
 import Pic1 from '../Images/banner1.jpg'
 import Pic2 from '../Images/banner2.jpg'
 import Pic3 from '../Images/banner3.jpg'
-
+import LinearProgress from '@mui/material/LinearProgress';
 
 
 
@@ -26,6 +26,8 @@ function Home() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state);
 
+  const [loader, setLoader] = useState(true)
+
   const [foods, setFoods] = useState([])
 
   useEffect(() => {
@@ -34,6 +36,7 @@ function Home() {
     } else {
       axios.get(constant.API_URL + '/api/food/getfoods')
         .then((res) => {
+          setLoader(false)
           console.log(res)
           setFoods(res.data)
           dispatch(setProducts(res.data));
@@ -87,10 +90,25 @@ function Home() {
         </Carousel>
       </div>
 
+      {
+        loader ?
+          <>
+            <LinearProgress></LinearProgress>
+            <p>Loading food items...</p>
+          </>
+          :
+          <></>
+      }
+
+
+
+
       <div className='foods'>
+
         {
           foods.length > 0 ? foods.map((item, index) =>
             <div>
+
               <FoodCard
                 id={item._id}
                 // ownerId={item.ownerId}
@@ -103,7 +121,7 @@ function Home() {
               // date={item.sellingDate}
               />
             </div>
-          ) : <h1>No products found</h1>
+          ) : <p>No products found</p>
         }
       </div>
     </div>

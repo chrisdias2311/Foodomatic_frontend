@@ -229,7 +229,6 @@ function FoodDetails() {
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">
 						<h3 className='fw-bold'>Suggested <span class="orange-text fw-bold">For You</span></h3>
-						<p className='text-muted'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
 					</div>
 				</div>
 			</div>
