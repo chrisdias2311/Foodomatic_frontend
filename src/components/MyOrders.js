@@ -147,7 +147,7 @@ function MyOrders() {
 
                                 
                             </div>
-                        ) : <h1>No products found</h1>
+                        ) : <h6>No orders found</h6>
                     }
 
 

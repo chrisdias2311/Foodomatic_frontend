@@ -32,7 +32,7 @@ function FoodCard({ id, name, description, price, image, location, preparingtime
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        {name.slice(0, 50) + "...."}
+                        {name.slice(0, 50) + "...."} 
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         <strong>Description: </strong>{description.slice(0, 50) + "...."}

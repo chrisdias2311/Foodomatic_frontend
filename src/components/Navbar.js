@@ -186,6 +186,14 @@ function DrawerAppBar(props) {
               onChange={handleSearch}
             />
           </Search>
+          {
+            localStorage.getItem('user') ?
+              <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                <Button onClick={logout} sx={{ ':hover': { bgcolor: 'black', color: 'white' }, bgcolor: '#155b8a', margin: '10px' }} variant="contained">Logout</Button>
+              </Box>
+              :
+              <></>
+          }
           <Button onClick={searchProducts} sx={{ ':hover': { bgcolor: 'black', color: 'white' }, bgcolor: '#155b8a', margin: '10px' }} variant="contained"><SearchIcon /></Button>
 
           {
@@ -193,14 +201,13 @@ function DrawerAppBar(props) {
               <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                 <Button onClick={navigateToHome} sx={{ color: '#fff' }}>Home</Button>
                 <Button onClick={navigateToDashboard} sx={{ color: '#fff' }}>My Orders</Button>
-
               </Box>
               :
               <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                 <Button onClick={navigateToHome} sx={{ color: '#fff' }}>Home</Button>
                 <Button onClick={navigateToUsersignup} sx={{ color: '#fff' }}>Sign up</Button>
                 <Button onClick={navigateToUserLogin} sx={{ color: '#fff' }}>Login</Button>
-                <Button onClick={logout} sx={{ ':hover': { bgcolor: 'black', color: 'white' }, bgcolor: '#155b8a', margin: '10px' }} variant="contained">Logout</Button>
+
                 {/* <Button onClick={navigateToDbSignup} sx={{ color: '#fff' }}>Delivery boy</Button>
                 <Button onClick={navigateToDeliveryBoyLogin} sx={{ color: '#fff' }}>Delivery boy Login</Button> */}
               </Box>
